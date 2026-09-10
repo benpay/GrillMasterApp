@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="GrillMaster.API/GrillMaster.API.csproj" Id="982d674d-4609-4695-ac6b-666c4ef008fc" />
+  <Project Path="GrillMaster.Application/GrillMaster.Application.csproj" Id="3cd1231f-685e-443d-9f03-c6e6895b46c6" />
+  <Project Path="GrillMaster.Domain/GrillMaster.Domain.csproj" Id="403edc38-9704-4b39-85e6-5f7deb728320" />
+  <Project Path="GrillMaster.Infraestructure/GrillMaster.Infraestructure.csproj" Id="919838d6-23e2-4a1b-82aa-9de56d57f7b6" />
+  <Project Path="GrillMaster.Test/GrillMaster.Test.csproj" Id="70b258d7-012d-48bb-824e-0a52b5fd9787" />
+</Solution>

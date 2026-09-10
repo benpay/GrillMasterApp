@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+	<ItemGroup>
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\GrillMaster.Application\GrillMaster.Application.csproj" />
+	  <ProjectReference Include="..\GrillMaster.Infraestructure\GrillMaster.Infraestructure.csproj" />
+	</ItemGroup>
+
+</Project>

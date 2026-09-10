@@ -1,0 +1,6 @@
+@GrillMasterApp_HostAddress = http://localhost:5260
+
+GET {{GrillMasterApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

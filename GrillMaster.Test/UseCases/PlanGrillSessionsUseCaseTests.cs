@@ -1,4 +1,6 @@
-﻿using GrillMaster.Domain.DTOs;
+﻿using System;
+using System.Linq;
+using GrillMaster.Domain.DTOs;
 using GrillMaster.Application.UseCases;
 using GrillMaster.Domain.Abstractions;
 using GrillMaster.Domain.Entities;
@@ -21,13 +23,13 @@ public sealed class PlanGrillSessionsUseCaseTests
     public void Execute_ValidRequest_ReturnsPlanWithCorrectMenu()
     {
         _packingService.Pack(Arg.Any<IEnumerable<GrillItem>>())
-            .Returns([new GrillSession(1, [])]);
+            .Returns(new[] { new GrillSession(1, Array.Empty<PlacedItem>()) });
 
         MenuRequestDto request = DataTests.BuildRequest(itemCount: 1);
-        var result = _useCase.Execute(request);
+        var result = _useCase.Execute(new[] { request });
 
-        Assert.Equal(request.Menu, result.Menu);
-        Assert.Equal(1, result.TotalSessions);
+        Assert.Equal(request.Menu, result.Menus[0].Menu);
+        Assert.Equal(1, result.TotalRounds);
     }
 
     [Fact]
@@ -36,10 +38,10 @@ public sealed class PlanGrillSessionsUseCaseTests
         IEnumerable<GrillItem>? capturedItems = null;
 
         _packingService.Pack(Arg.Do<IEnumerable<GrillItem>>(i => capturedItems = i))
-            .Returns([new GrillSession(1, [])]);
+            .Returns(new[] { new GrillSession(1, Array.Empty<PlacedItem>()) });
 
         MenuRequestDto request = DataTests.BuildRequest(itemCount: 2);
-        _useCase.Execute(request);
+        _useCase.Execute(new[] { request });
 
         Assert.Equal(2, capturedItems?.Count());
     }
